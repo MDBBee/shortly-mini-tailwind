@@ -2,7 +2,11 @@ const input = document.getElementById('link-input');
 const form = document.getElementById('link-form');
 const errM = document.getElementById('err-msg');
 
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+
 form.addEventListener('submit', handleSubmit);
+btn.addEventListener('click', navToggle);
 
 function validURL(str) {
   var pattern = new RegExp(
@@ -15,6 +19,13 @@ function validURL(str) {
     'i'
   );
   return !!pattern.test(str);
+}
+
+// Toggle Mobile Menu
+function navToggle() {
+  btn.classList.toggle('open');
+  menu.classList.toggle('flex');
+  menu.classList.toggle('hidden');
 }
 
 function handleSubmit(e) {
